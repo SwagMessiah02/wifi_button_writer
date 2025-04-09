@@ -21,9 +21,9 @@ struct Pos {
 
 static err_t tcp_connected_callback(void *arg, struct tcp_pcb *tpcb, err_t err);
 static err_t tcp_sent_callback(void *arg, struct tcp_pcb *tpcb, u16_t len);
-void enviar_dados();
 const char* posicao(struct Pos pos);
 float ler_temperatura();
+void enviar_dados();
 void setup();
 
 int main() {
@@ -142,6 +142,8 @@ void setup() {
     adc_select_input(4);
 }
 
+
+// Função para ler a temperatura interna do microcontrolador
 float ler_temperatura() {
     uint16_t leitura = adc_read(); // Realiza a leitura do sinal analógico
     const float conversor = 3.3f / (1 << 12);
